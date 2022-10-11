@@ -1,6 +1,7 @@
 <template>
+  <UpArrow @scroll="scrollToView" />
   <NavBar @scroll="scrollToView" />
-  <MainSection />
+  <MainSection @scroll="scrollToView" />
   <AboutSection />
   <SkillsSection />
   <PortfolioSection />
@@ -8,6 +9,7 @@
 </template>
 
 <script>
+import UpArrow from "@/components/UpArrow.vue";
 import NavBar from "@/components/NavBar.vue";
 import MainSection from "@/components/MainSection.vue";
 import AboutSection from "@/components/AboutSection.vue";
@@ -17,6 +19,7 @@ import ContactSection from "@/components/ContactSection.vue";
 export default {
   name: "MyView",
   components: {
+    UpArrow,
     NavBar,
     MainSection,
     AboutSection,
@@ -25,24 +28,9 @@ export default {
     ContactSection,
   },
   setup() {
-    var showedView;
     const scrollToView = (view) => {
-      if (view === "about") {
-        showedView = document.querySelector("#about");
-        showedView.scrollIntoView({ behavior: "smooth" });
-      }
-      if (view === "home") {
-        showedView = document.querySelector("#home");
-        showedView.scrollIntoView({ behavior: "smooth" });
-      }
-      if (view === "skills") {
-        showedView = document.querySelector("#skills");
-        showedView.scrollIntoView({ behavior: "smooth" });
-      }
-      if (view === "portfolio") {
-        showedView = document.querySelector("#portfolio");
-        showedView.scrollIntoView({ behavior: "smooth" });
-      }
+      const showedView = document.querySelector(`#${view}`);
+      showedView.scrollIntoView({ behavior: "smooth" });
     };
     return { scrollToView };
   },

@@ -8,7 +8,7 @@
       </div>
       <i class="fa-solid fa-angle-up"></i>
     </div>
-    <div class="skills-container" style="max-height: 0px">
+    <div class="skills-container">
       <div class="skill" v-for="skill in skills" :key="skill">
         <div class="skill-name">{{ skill.skillName }}</div>
         <div class="percentage">{{ skill.percentage }}%</div>
@@ -29,14 +29,10 @@ export default {
   setup() {
     const toggleSkills = (e) => {
       const arrow = e.target.querySelector("i:last-child");
-      arrow.style.transform =
-        arrow.style.transform === "rotate(0deg)"
-          ? "rotate(180deg)"
-          : "rotate(0deg)";
+      arrow.classList.toggle("show");
 
       const skillContainer = e.target.nextSibling;
-      skillContainer.style.maxHeight =
-        skillContainer.style.maxHeight === "0px" ? "600px" : "0px";
+      skillContainer.classList.toggle("max-height");
     };
     return { toggleSkills };
   },
@@ -87,6 +83,7 @@ export default {
   }
 
   .skills-container {
+    max-height: 0;
     padding: 15px;
     overflow: hidden;
     -webkit-transition: max-height var(--transition);
@@ -121,6 +118,16 @@ export default {
       }
     }
   }
+}
+.show {
+  transform: rotate(0deg) !important;
+  -webkit-transform: rotate(0deg) !important;
+  -moz-transform: rotate(0deg) !important;
+  -o-transform: rotate(0deg) !important;
+  -ms-transform: rotate(0deg) !important;
+}
+.max-height {
+  max-height: 600px !important;
 }
 
 @media screen and (max-width: 784px) {

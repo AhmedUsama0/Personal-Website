@@ -23,7 +23,6 @@ export default {
 <style lang="scss">
 .contact-section {
   padding: 80px 0px;
-  //   background-color: gray;
   .contact-header {
     text-align: center;
     margin-top: 130px;
@@ -36,6 +35,10 @@ export default {
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
       height: 3px;
       width: 200px;
       background-color: var(--main-color);

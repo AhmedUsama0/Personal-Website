@@ -46,6 +46,10 @@ export default {};
       left: 0;
       top: 50%;
       transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
       color: var(--main-color);
     }
     &:first-child::before {

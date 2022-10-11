@@ -1,8 +1,8 @@
 <template>
-  <header>
-    <a href="#" class="logo">Ahmed</a>
+  <header id="header">
+    <a href="/" class="logo">Ahmed</a>
     <input type="checkbox" id="menu" />
-    <nav ref="nav">
+    <nav>
       <ul>
         <li class="home">
           <a href="#" @click.prevent="scrollTo('home')">Home</a>
@@ -80,10 +80,18 @@ header {
           bottom: 0;
           left: 50%;
           transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
           width: 0;
           height: 2px;
           background-color: var(--main-color);
           transition: var(--transition);
+          -webkit-transition: var(--transition);
+          -moz-transition: var(--transition);
+          -o-transition: var(--transition);
+          -ms-transition: var(--transition);
         }
         &:hover::after {
           width: 100%;

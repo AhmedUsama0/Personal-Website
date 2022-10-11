@@ -5,23 +5,19 @@
       <img src="@/assets/about2.png" class="about-img" alt="about-img" />
       <div class="box">
         <div class="box-content">
-          <p>03</p>
+          <p>+02</p>
           <p>
             Years <br />
             Experience
           </p>
         </div>
         <div class="box-content">
-          <p>10</p>
+          <p>+20</p>
           <p>
             Completed <br />
             Projects
           </p>
         </div>
-        <!-- <div class="box-content">
-                <p>03</p>
-                <p>Years <br> experience</p>
-            </div> -->
         <a
           href="https://drive.google.com/uc?export=download&id=1n8UhLjt-6CP8rjYvYvhAbc2MBBpgf779"
           class="cv"
@@ -55,6 +51,10 @@ export default {
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
       height: 3px;
       width: 200px;
       background-color: var(--main-color);

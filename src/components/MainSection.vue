@@ -1,5 +1,6 @@
 <template>
   <main id="home">
+    <i class="fa-solid fa-arrow-down down-arrow" @click="scrollTo('about')"></i>
     <div class="container">
       <div class="links">
         <ul>
@@ -34,7 +35,7 @@
           back-end development and producing <br />
           quality work.
         </p>
-        <a href="#">Contact Me</a>
+        <a href="mailto:aomn040@gmail.com">Contact Me</a>
       </div>
       <img src="@/assets/main.jpg" class="header-img" />
     </div>
@@ -44,12 +45,31 @@
 <script>
 export default {
   name: "MainSection",
+  setup(props, context) {
+    const scrollTo = (view) => context.emit("scroll", view);
+
+    return { scrollTo };
+  },
 };
 </script>
 
 <style lang="scss">
 main {
-  min-height: 70vh;
+  height: 730px;
+  position: relative;
+  .down-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    color: var(--main-color);
+    font-size: 40px;
+    cursor: pointer;
+    animation: up_down 1s linear infinite;
+  }
   .container {
     padding: 30px 20px;
     max-width: 1350px;
@@ -99,6 +119,17 @@ main {
       max-width: 100%;
       height: auto;
     }
+  }
+}
+@keyframes up_down {
+  0% {
+    bottom: 50px;
+  }
+  50% {
+    bottom: 30px;
+  }
+  100% {
+    bottom: 50px;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {

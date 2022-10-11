@@ -62,6 +62,10 @@ export default {
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
       height: 3px;
       width: 150px;
       background-color: var(--main-color);
@@ -82,6 +86,10 @@ export default {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
       font-size: 60px;
       color: var(--main-color);
       cursor: pointer;

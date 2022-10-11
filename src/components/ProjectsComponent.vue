@@ -112,6 +112,10 @@ export default {
       font-weight: 900;
       margin-left: 10px;
       transition: var(--transition);
+      -webkit-transition: var(--transition);
+      -moz-transition: var(--transition);
+      -o-transition: var(--transition);
+      -ms-transition: var(--transition);
       left: 0;
       position: relative;
     }

@@ -1,14 +1,15 @@
 <template>
-  <form action="" autocomplete="off">
+  <form>
     <div class="right-box">
-      <input type="text" placeholder="Name" class="name" />
-      <input type="email" placeholder="Email" class="email" />
-      <input type="text" placeholder="Project" class="project" />
+      <input type="text" placeholder="Name" class="name" required />
+      <input type="email" placeholder="Email" class="email" required />
+      <input type="text" placeholder="Project" class="project" required />
       <textarea
         cols="30"
         rows="5"
         placeholder="Message"
         class="message"
+        required
       ></textarea>
       <button type="submit" class="send">Send Message</button>
     </div>
@@ -62,6 +63,10 @@ form {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
         margin-left: 10px;
       }
     }

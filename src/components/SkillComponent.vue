@@ -1,0 +1,134 @@
+<template>
+  <div class="field">
+    <div class="field-container" @click="toggleSkills">
+      <slot></slot>
+      <div class="field-content">
+        <div class="field-head">{{ title }}</div>
+        <p v-if="exp">More than {{ exp }} years</p>
+      </div>
+      <i class="fa-solid fa-angle-up"></i>
+    </div>
+    <div class="skills-container" style="max-height: 0px">
+      <div class="skill" v-for="skill in skills" :key="skill">
+        <div class="skill-name">{{ skill.skillName }}</div>
+        <div class="percentage">{{ skill.percentage }}%</div>
+        <progress :value="skill.percentage" min="0" max="100"></progress>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "SkillComponent",
+  props: {
+    skills: Array,
+    title: String,
+    exp: Number,
+  },
+  setup() {
+    const toggleSkills = (e) => {
+      const arrow = e.target.querySelector("i:last-child");
+      arrow.style.transform =
+        arrow.style.transform === "rotate(0deg)"
+          ? "rotate(180deg)"
+          : "rotate(0deg)";
+
+      const skillContainer = e.target.nextSibling;
+      skillContainer.style.maxHeight =
+        skillContainer.style.maxHeight === "0px" ? "600px" : "0px";
+    };
+    return { toggleSkills };
+  },
+};
+</script>
+
+<style lang="scss">
+.field {
+  flex-basis: 45%;
+  height: 600px;
+  .field-container {
+    background-color: #e6e6e665;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    cursor: pointer;
+    i {
+      pointer-events: none;
+      font-size: 30px;
+      color: var(--main-color);
+      &:last-child {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transition: transform var(--transition);
+        -webkit-transition: transform var(--transition);
+        -moz-transition: transform var(--transition);
+        -ms-transition: transform var(--transition);
+        -o-transition: transform var(--transition);
+      }
+    }
+    .field-content {
+      pointer-events: none;
+      flex-basis: 70%;
+      .field-head {
+        font-size: calc(19px + 0.3568vw);
+        color: #000;
+        font-weight: bold;
+      }
+      p {
+        color: var(--secondary-color);
+        font-size: 20px;
+      }
+    }
+  }
+
+  .skills-container {
+    padding: 15px;
+    overflow: hidden;
+    -webkit-transition: max-height var(--transition);
+    -moz-transition: max-height var(--transition);
+    -ms-transition: max-height var(--transition);
+    -o-transition: max-height var(--transition);
+    transition: max-height var(--transition);
+    .skill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      .skill-name,
+      .percentage {
+        color: #000;
+        font-size: 20px;
+      }
+      .percentage {
+        color: var(--seconday-color);
+      }
+      progress {
+        background: var(--main-color);
+        flex-basis: 100%;
+      }
+      progress::-moz-progress-bar {
+        background: var(--main-color);
+      }
+
+      progress::-webkit-progress-value {
+        background: var(--main-color);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 784px) {
+  .field {
+    flex-basis: 100% !important;
+    .field-container {
+      gap: 0 20px;
+    }
+  }
+}
+</style>

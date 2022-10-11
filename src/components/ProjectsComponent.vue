@@ -77,7 +77,7 @@ export default {
 <style lang="scss">
 .project {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   min-width: 100%;
   img {

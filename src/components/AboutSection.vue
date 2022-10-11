@@ -1,5 +1,5 @@
 <template>
-  <div class="about-section" id="about">
+  <section class="about-section" id="about">
     <div class="about-header">About Me</div>
     <div class="container">
       <img src="@/assets/about2.png" class="about-img" alt="about-img" />
@@ -30,7 +30,7 @@
         >
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -54,7 +54,7 @@ export default {
       position: absolute;
       bottom: 10px;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       height: 3px;
       width: 200px;
       background-color: var(--main-color);

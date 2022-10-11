@@ -1,9 +1,10 @@
 <template>
   <NavBar @scroll="scrollToView" />
-  <MainSection ref="home" />
-  <AboutSection ref="about" />
-  <SkillsSection ref="skills" />
-  <PortfolioSection ref="portfolio" />
+  <MainSection />
+  <AboutSection />
+  <SkillsSection />
+  <PortfolioSection />
+  <ContactSection />
 </template>
 
 <script>
@@ -12,7 +13,7 @@ import MainSection from "@/components/MainSection.vue";
 import AboutSection from "@/components/AboutSection.vue";
 import SkillsSection from "@/components/SkillsSection.vue";
 import PortfolioSection from "@/components/PortfolioSection.vue";
-import { ref } from "vue";
+import ContactSection from "@/components/ContactSection.vue";
 export default {
   name: "MyView",
   components: {
@@ -21,23 +22,29 @@ export default {
     AboutSection,
     SkillsSection,
     PortfolioSection,
+    ContactSection,
   },
   setup() {
-    const about = ref();
-    const home = ref();
-    const skills = ref();
-    const portfolio = ref();
+    var showedView;
     const scrollToView = (view) => {
-      if (view === "about")
-        about.value.$el.scrollIntoView({ behavior: "smooth" });
-      else if (view === "home")
-        home.value.$el.scrollIntoView({ behavior: "smooth" });
-      else if (view === "skills")
-        skills.value.$el.scrollIntoView({ behavior: "smooth" });
-      else if (view === "portfolio")
-        portfolio.value.$el.scrollIntoView({ behavior: "smooth" });
+      if (view === "about") {
+        showedView = document.querySelector("#about");
+        showedView.scrollIntoView({ behavior: "smooth" });
+      }
+      if (view === "home") {
+        showedView = document.querySelector("#home");
+        showedView.scrollIntoView({ behavior: "smooth" });
+      }
+      if (view === "skills") {
+        showedView = document.querySelector("#skills");
+        showedView.scrollIntoView({ behavior: "smooth" });
+      }
+      if (view === "portfolio") {
+        showedView = document.querySelector("#portfolio");
+        showedView.scrollIntoView({ behavior: "smooth" });
+      }
     };
-    return { scrollToView, home, about, skills, portfolio };
+    return { scrollToView };
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="skills-section" id="skills">
+  <section class="skills-section" id="skills">
     <div class="skill-header">Skills</div>
     <p class="skill-info">My technical level</p>
     <div class="container">
@@ -18,7 +18,7 @@
         <i class="fa-solid fa-database"></i>
       </SkillComponent>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -64,7 +64,7 @@ export default {
       position: absolute;
       bottom: 10px;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       height: 3px;
       width: 100px;
       background-color: var(--main-color);

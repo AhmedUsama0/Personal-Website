@@ -61,7 +61,7 @@ export default {
       position: absolute;
       bottom: 10px;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       height: 3px;
       width: 150px;
       background-color: var(--main-color);

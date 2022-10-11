@@ -70,8 +70,23 @@ header {
         text-decoration: none;
         color: #000;
         font-size: 18px;
+        position: relative;
         &:focus {
           color: var(--main-color);
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 2px;
+          background-color: var(--main-color);
+          transition: var(--transition);
+        }
+        &:hover::after {
+          width: 100%;
         }
       }
     }

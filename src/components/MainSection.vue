@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main id="home">
     <div class="container">
       <div class="links">
         <ul>

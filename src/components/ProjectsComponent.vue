@@ -31,7 +31,7 @@ export default {
         link: "https://chat-app-six-livid.vercel.app/login",
       },
       {
-        title: "Website Template",
+        title: "Template",
         description: "Amazing website template with a lot of animations.",
         img: "template2.png",
         link: "https://wonder-full-website.vercel.app",
@@ -62,7 +62,7 @@ export default {
         link: "https://bear-game.vercel.app",
       },
       {
-        title: "Website Template",
+        title: "Template",
         description: "Amazing website template.",
         img: "template.png",
         link: "https://vue-template-neon.vercel.app",

@@ -25,7 +25,7 @@ export default {
 
     const scrollToRight = () => {
       if (
-        scroll ===
+        scroll ==
         projectCont.offsetWidth * (projectCont.childElementCount - 1)
       )
         return;
@@ -34,7 +34,7 @@ export default {
     };
 
     const scrollToLeft = () => {
-      if (scroll === 0) return;
+      if (scroll == 0) return;
       scroll -= projectCont.offsetWidth;
       projectCont.scrollTo(scroll, 0);
     };
@@ -105,8 +105,6 @@ export default {
       display: flex;
       width: 800px;
       margin: 0 auto;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
     }
   }
 }

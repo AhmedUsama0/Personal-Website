@@ -33,7 +33,13 @@ export default {
   name: "NavBar",
   setup(props, context) {
     const scrollTo = (view) => context.emit("scroll", view);
-
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 270) {
+        document.querySelector("#header").classList.add("fixed-top");
+        return;
+      }
+      document.querySelector("#header").classList.remove("fixed-top");
+    });
     return { scrollTo };
   },
 };
@@ -44,8 +50,10 @@ header {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  background-color: #fff;
+  background-color: #fff !important;
   padding: 30px;
+  top: -20px;
+  transition: top var(--transition);
   input {
     display: none;
   }
@@ -132,9 +140,8 @@ header {
     width: 100%;
     z-index: 100;
     justify-content: space-between;
-    top: unset;
+    top: unset !important;
     bottom: 0;
-    background-color: #fff;
     box-shadow: 2px 1px 5px 5px rgb(0 0 0 / 20%);
     padding: 0;
     input {
@@ -186,5 +193,14 @@ header {
       color: #000;
     }
   }
+}
+
+.fixed-top {
+  position: fixed;
+  z-index: 500;
+  width: 100%;
+  box-shadow: 2px 1px 5px 5px rgb(0 0 0 / 20%);
+  padding: 0;
+  top: 0;
 }
 </style>

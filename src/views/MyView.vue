@@ -32,6 +32,7 @@ export default {
       const showedView = document.querySelector(`#${view}`);
       showedView.scrollIntoView({ behavior: "smooth" });
     };
+
     return { scrollToView };
   },
 };

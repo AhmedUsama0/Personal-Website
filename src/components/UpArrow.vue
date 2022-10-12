@@ -1,12 +1,12 @@
 <template>
-  <i class="fa-solid fa-arrow-up arrow-up" @click="scrollTo('header')"></i>
+  <i class="fa-solid fa-arrow-up arrow-up" @click="scrollUp"></i>
 </template>
 
 <script>
 export default {
-  setup(props, context) {
-    const scrollTo = (view) => context.emit("scroll", view);
-    return { scrollTo };
+  setup() {
+    const scrollUp = () => window.scrollTo(0, 0);
+    return { scrollUp };
   },
 };
 </script>

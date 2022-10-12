@@ -37,7 +37,7 @@
         </p>
         <a href="mailto:aomn040@gmail.com">Contact Me</a>
       </div>
-      <img src="@/assets/main.jpg" class="header-img" />
+      <img src="@/assets/main2.png" class="header-img" />
     </div>
   </main>
 </template>
@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss">
 main {
-  height: 730px;
+  min-height: 760px;
   position: relative;
   .down-arrow {
     position: absolute;

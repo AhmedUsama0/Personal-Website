@@ -30,7 +30,7 @@ export default {};
     position: relative;
     padding: 0px 55px 0px;
     div:first-child {
-      color: #000;
+      color: var(--black-color);
       font-size: 30px;
     }
     div:last-child {

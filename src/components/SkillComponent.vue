@@ -1,14 +1,14 @@
 <template>
   <div class="field">
-    <div class="field-container" @click="toggleSkills">
+    <div class="field-container" @click="isClicked = !isClicked">
       <slot></slot>
       <div class="field-content">
         <div class="field-head">{{ title }}</div>
         <p v-if="exp">More than {{ exp }} years</p>
       </div>
-      <i class="fa-solid fa-angle-up"></i>
+      <i class="fa-solid fa-angle-up" :class="{ rotate: isClicked }"></i>
     </div>
-    <div class="skills-container">
+    <div class="skills-container" :class="{ max_height: isClicked }">
       <div class="skill" v-for="skill in skills" :key="skill">
         <div class="skill-name">{{ skill.skillName }}</div>
         <div class="percentage">{{ skill.percentage }}%</div>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   name: "SkillComponent",
   props: {
@@ -27,14 +28,8 @@ export default {
     exp: Number,
   },
   setup() {
-    const toggleSkills = (e) => {
-      const arrow = e.target.querySelector("i:last-child");
-      arrow.classList.toggle("show");
-
-      const skillContainer = e.target.nextSibling;
-      skillContainer.classList.toggle("max-height");
-    };
-    return { toggleSkills };
+    const isClicked = ref(false);
+    return { isClicked };
   },
 };
 </script>
@@ -44,11 +39,9 @@ export default {
   flex-basis: 45%;
   height: 600px;
   .field-container {
-    background-color: #e6e6e665;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 10px;
     cursor: pointer;
     i {
       pointer-events: none;
@@ -72,7 +65,7 @@ export default {
       flex-basis: 70%;
       .field-head {
         font-size: calc(19px + 0.3568vw);
-        color: #000;
+        color: var(--black-color);
         font-weight: bold;
       }
       p {
@@ -99,8 +92,10 @@ export default {
       margin-top: 20px;
       .skill-name,
       .percentage {
-        color: #000;
         font-size: 20px;
+      }
+      .skill-name {
+        color: var(--black-color);
       }
       .percentage {
         color: var(--seconday-color);
@@ -119,14 +114,14 @@ export default {
     }
   }
 }
-.show {
+.rotate {
   transform: rotate(0deg) !important;
   -webkit-transform: rotate(0deg) !important;
   -moz-transform: rotate(0deg) !important;
   -o-transform: rotate(0deg) !important;
   -ms-transform: rotate(0deg) !important;
 }
-.max-height {
+.max_height {
   max-height: 600px !important;
 }
 

@@ -27,7 +27,7 @@ export default {
     text-align: center;
     margin-top: 130px;
     font-size: 60px;
-    color: #000;
+    color: var(--black-color);
     position: relative;
     &::after {
       content: "";

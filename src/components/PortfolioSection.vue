@@ -5,7 +5,7 @@
     <div class="container">
       <i class="fa-solid fa-angle-right arrow right" @click="scrollToRight"></i>
       <i class="fa-solid fa-angle-left arrow left" @click="scrollToLeft"></i>
-      <div class="project-container">
+      <div class="project-container" ref="projectCont">
         <ProjectsComponent />
       </div>
     </div>
@@ -14,36 +14,33 @@
 
 <script>
 import ProjectsComponent from "@/components/ProjectsComponent.vue";
-import { onMounted } from "vue";
+import { ref } from "vue";
 export default {
   components: {
     ProjectsComponent,
   },
   setup() {
     var scroll = 0;
-    var projectCont;
+    const projectCont = ref();
 
     const scrollToRight = () => {
       if (
         scroll ==
-        projectCont.offsetWidth * (projectCont.childElementCount - 1)
+        projectCont.value.offsetWidth *
+          (projectCont.value.childElementCount - 1)
       )
         return;
-      scroll += projectCont.offsetWidth;
-      projectCont.scrollTo(scroll, 0);
+      scroll += projectCont.value.offsetWidth;
+      projectCont.value.scrollTo(scroll, 0);
     };
 
     const scrollToLeft = () => {
       if (scroll == 0) return;
-      scroll -= projectCont.offsetWidth;
-      projectCont.scrollTo(scroll, 0);
+      scroll -= projectCont.value.offsetWidth;
+      projectCont.value.scrollTo(scroll, 0);
     };
 
-    onMounted(() => {
-      projectCont = document.querySelector(".project-container");
-    });
-
-    return { scrollToRight, scrollToLeft };
+    return { scrollToRight, scrollToLeft, projectCont };
   },
 };
 </script>
@@ -54,7 +51,7 @@ export default {
   .portfolio-header {
     text-align: center;
     font-size: 60px;
-    color: #000;
+    color: var(--black-color);
     position: relative;
     &::after {
       content: "";

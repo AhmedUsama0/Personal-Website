@@ -92,7 +92,7 @@ main {
     .header-text {
       h1 {
         font-size: 60px;
-        color: #000;
+        color: var(--black-color);
       }
       .job {
         color: var(--secondary-color);

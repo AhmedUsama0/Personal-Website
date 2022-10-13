@@ -37,7 +37,7 @@ form {
       border-radius: 10px;
       border: 0;
       outline: 0;
-      background-color: #eeeffc;
+      background-color: var(--input-color);
       flex-basis: 100%;
       font-size: 18px;
       &::placeholder {

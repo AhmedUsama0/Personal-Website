@@ -57,7 +57,7 @@ export default {
   .skill-header {
     text-align: center;
     font-size: 60px;
-    color: #000;
+    color: var(--black-color);
     position: relative;
     &::after {
       content: "";

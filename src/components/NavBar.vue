@@ -1,5 +1,5 @@
 <template>
-  <header id="header">
+  <header :class="{ fixed_top: isScrolled }">
     <a href="/" class="logo">Ahmed</a>
     <input type="checkbox" id="menu" />
     <nav>
@@ -19,7 +19,10 @@
         <li class="contact">
           <a href="#" @click.prevent="scrollTo('contact')">ContactMe</a>
         </li>
-        <i class="fa-solid fa-moon moon"></i>
+        <i
+          class="fa-solid fa-moon moon"
+          @click="theme == 'light' ? (theme = 'dark') : (theme = 'light')"
+        ></i>
       </ul>
     </nav>
     <label for="menu" class="menu">
@@ -29,18 +32,34 @@
 </template>
 
 <script>
+import { ref, watch } from "vue";
 export default {
   name: "NavBar",
   setup(props, context) {
+    const isScrolled = ref();
+    const theme = ref("light");
+    var root = document.documentElement;
     const scrollTo = (view) => context.emit("scroll", view);
+
     window.addEventListener("scroll", () => {
       if (window.scrollY >= 270) {
-        document.querySelector("#header").classList.add("fixed-top");
+        isScrolled.value = true;
         return;
       }
-      document.querySelector("#header").classList.remove("fixed-top");
+      isScrolled.value = false;
     });
-    return { scrollTo };
+    watch(theme, (currentTheme) => {
+      if (currentTheme == "dark") {
+        root.style.setProperty("--body-bgColor", "#191524");
+        root.style.setProperty("--black-color", "#fff");
+        root.style.setProperty("--input-color", "#fff");
+      } else {
+        root.style.setProperty("--body-bgColor", "#fff");
+        root.style.setProperty("--black-color", "#000");
+        root.style.setProperty("--input-color", "#eeeffc");
+      }
+    });
+    return { scrollTo, isScrolled, theme };
   },
 };
 </script>
@@ -50,8 +69,8 @@ header {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  background-color: #fff !important;
-  padding: 30px;
+  background-color: var(--body-bgColor) !important;
+  padding: 10px;
   top: -20px;
   transition: top var(--transition);
   input {
@@ -60,7 +79,7 @@ header {
   .logo {
     font-size: 30px;
     font-weight: bold;
-    color: #000;
+    color: var(--black-color);
   }
   ul {
     display: flex;
@@ -73,11 +92,13 @@ header {
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
         margin-right: 10px;
+        color: var(--black-color);
       }
       a {
         text-decoration: none;
-        color: #000;
+        color: var(--black-color);
         font-size: 18px;
+        font-weight: 900;
         position: relative;
         &:focus {
           color: var(--main-color);
@@ -124,12 +145,13 @@ header {
 
     .moon {
       font-size: 35px;
+      color: var(--black-color);
       cursor: pointer;
     }
   }
   .menu {
     font-size: 35px;
-    color: #fff;
+    color: var(--black-color);
     cursor: pointer;
     display: none !important;
   }
@@ -190,12 +212,11 @@ header {
       display: block !important;
       order: 2;
       margin-right: 10px;
-      color: #000;
     }
   }
 }
 
-.fixed-top {
+.fixed_top {
   position: fixed;
   z-index: 500;
   width: 100%;

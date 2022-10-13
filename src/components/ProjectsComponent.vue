@@ -87,7 +87,7 @@ export default {
   .project-info {
     .project-title {
       font-size: 40px;
-      color: #000;
+      color: var(--black-color);
     }
     .project-description {
       color: var(--secondary-color);

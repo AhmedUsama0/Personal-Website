@@ -15,15 +15,6 @@ export default {};
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-}
-
-nav {
-  // padding: 30px;
-
-  a {
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  background-color: var(--body-bgColor);
 }
 </style>

@@ -43,7 +43,7 @@ export default {
     margin-bottom: 80px;
     margin-top: 130px;
     font-size: 60px;
-    color: #000;
+    color: var(--black-color);
     position: relative;
     &::after {
       content: "";
@@ -84,7 +84,7 @@ export default {
         p {
           &:first-child {
             font-size: 40px;
-            color: #000;
+            color: var(--black-color);
           }
           &:last-child {
             font-size: 20px;

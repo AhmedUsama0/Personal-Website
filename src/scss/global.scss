@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500&family=Lato&family=Montserrat&family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,300&display=swap");
+:root {
+  --body-bgColor: #fff;
+  --black-color: #000;
+  --input-color: #eeeffc;
+  --main-color: #7d3ec1;
+  --secondary-color: #808080;
+  --transition: 0.5s;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
